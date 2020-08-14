@@ -1,0 +1,46 @@
+* Requests - Go helper library for http client related things
+
+
+* example
+
+** GET
+  #+begin_src go
+  opt:= requests.NewOption()
+  resp,err:= requests.Get("http://www.test.com",opt)
+  if err != nil {
+     panic(err)
+  }
+  defer resp.Body.Close()
+  #+end_src
+
+  #+begin_src go
+
+
+  resp,err:= requests.Get("http://www.test.com",requests.NewOption())
+  if err != nil {
+     panic(err)
+  }
+  defer resp.Body.Close()
+  #+end_src
+
+
+** POST
+ #+begin_src go
+  opt:= requests.NewOption()
+  resp,err:= requests.Post("http://www.test.com",opt)
+  if err != nil {
+     panic(err)
+  }
+  defer resp.Body.Close()
+  #+end_src
+
+  #+begin_src go
+  opt:= requests.NewOption()
+  opt.Data=[]byte("{\"test\":\"test\"}")
+  resp,err:= requests.Post("http://www.test.com",opt)
+  if err != nil {
+     panic(err)
+  }
+  defer resp.Body.Close()
+  #+end_src
+
